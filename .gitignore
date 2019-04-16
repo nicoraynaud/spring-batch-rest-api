@@ -1,0 +1,13 @@
+## JAVA
+bin/
+build/
+## GRADLE
+.gradle/
+/.project
+/.classpath
+/.settings
+## IDEA
+.idea
+*.iml
+*.log
+out

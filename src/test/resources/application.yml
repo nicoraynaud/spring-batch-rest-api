@@ -1,0 +1,31 @@
+spring:
+  batch:
+    job:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.hbm2ddl.auto: validate
+    show-sql: true
+
+batch:
+  jobs:
+    - name: job
+      description:  Ma description
+      parameters:
+        - name: StringParameter
+          type: STRING
+          default-value: valeur
+        - name: IntegerParameter
+          type: INTEGER
+          default-value: 1
+        - name: BooleanParameter
+          type: BOOLEAN
+          default-value: false
+    - name: job2
+      description:  Ma description2
+  enableStepListener: true
+  enableStepMultiThread: false
+logging:
+  path: build/tmp/batch-api-management/log/

@@ -1,0 +1,93 @@
+
+plugins {
+	id "org.sonarqube" version "2.5"
+	id 'net.ltgt.apt' version '0.8'
+	id "net.ltgt.apt-idea" version "0.13"
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'jacoco'
+apply plugin: 'org.sonarqube'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+	
+jar.baseName = projectName
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    baseName = 'spring-batch-rest-api'
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+javadoc {
+	options.charSet = 'UTF-8'
+}
+
+jacoco {
+	toolVersion = '0.8.1'
+}
+
+sonarqube {
+	properties {
+		property 'sonar.projectName', 'spring-batch-rest-api'
+	}
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	jcenter()
+}
+		
+dependencies{
+	
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version
+
+	//SPRINGBOOT
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-batch', version: spring_boot_version
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: spring_boot_version
+
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+	compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.5'
+	compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.2.0.Final'
+
+	//TESTS
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: spring_boot_version
+	testCompile 'org.springframework.batch:spring-batch-test:4.0.1.RELEASE'
+	testCompile "com.h2database:h2:1.4.197"
+	testCompile 'org.awaitility:awaitility:3.1.0'
+
+	apt 'org.mapstruct:mapstruct-processor:1.2.0.Final'
+}
+
+configurations.all {
+	exclude group: "org.slf4j", module: "slf4j-log4j12"
+	exclude group: "log4j", module: "log4j"
+}
+
+task createPom {
+	pom {
+		project {
+			artifactId projectName
+			inceptionYear '2019'
+			licenses {
+				license {
+					name 'The Apache Software License, Version 2.0'
+					url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					distribution 'repo'
+				}
+			}
+			scm {
+				url 'https://github.com/nicoraynaud/spring-batch-rest-api/'
+			}
+		}
+	}.writeTo("build/libs/${projectName}-${version}.pom")
+}
