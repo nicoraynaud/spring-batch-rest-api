@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping({"/management/jobs", "b2b/jobs"})
+@RequestMapping({"/management/jobs"})
 public class JobsResource {
     private final Logger log = LoggerFactory.getLogger(JobsResource.class);
 
