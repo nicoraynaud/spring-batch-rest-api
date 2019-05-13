@@ -3,6 +3,17 @@
 This library is meant to manage Spring Batch Jobs through a REST API.
 It has been developed to be compatible with [JHipster](https://www.jhipster.tech/) but only really needs [Spring](https://spring.io/) and [Spring Batch](https://spring.io/projects/spring-batch) to run properly.
 
+This lib is meant to be used with the following front-end for Angular : [angular-spring-batch](https://github.com/nicoraynaud/angular-spring-batch).
+
+## Authors
+
+This lib was developped by the following persons (if any co-author wants, I can add his fullname and github or personal page link right here) :
+- Jérome
+- Alexis
+- Noémie
+- Kilian
+- Nicolas (me)
+
 ## JHipster compatibility
 
 
