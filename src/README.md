@@ -7,7 +7,7 @@ This lib is meant to be used with the following front-end for Angular : [angular
 
 ## Authors
 
-This lib was developped by the following persons (if any co-author wants, I can add his fullname and github or personal page link right here) :
+This lib was developed by the following persons (if any co-author wants, I can add his full name and github or personal page link right here) :
 - Jérome
 - Alexis
 - Noémie
