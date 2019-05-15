@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "batch_step_execution")
+@Table(name = "BATCH_STEP_EXECUTION")
 public class JobStepExecutionEntity {
 
     @Id
-    @Column(name = "step_execution_id", updatable = false, insertable = false)
+    @Column(name = "STEP_EXECUTION_ID", updatable = false, insertable = false)
     private long id;
 
-    @Column(name = "job_execution_id", updatable = false, insertable = false)
+    @Column(name = "JOB_EXECUTION_ID", updatable = false, insertable = false)
     private Long jobExecutionId;
 
     @OneToMany(mappedBy = "id", orphanRemoval = true)

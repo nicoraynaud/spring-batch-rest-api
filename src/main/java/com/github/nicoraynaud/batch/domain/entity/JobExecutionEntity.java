@@ -6,42 +6,42 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "batch_job_execution")
+@Table(name = "BATCH_JOB_EXECUTION")
 public class JobExecutionEntity {
 
     @Id
-    @Column(name = "job_execution_id", updatable = false, insertable = false)
+    @Column(name = "JOB_EXECUTION_ID", updatable = false, insertable = false)
     private long id;
 
-    @Column(name = "version", updatable = false, insertable = false)
+    @Column(name = "VERSION", updatable = false, insertable = false)
     private Long version;
 
-    @Column(name = "create_time", updatable = false, insertable = false)
+    @Column(name = "CREATE_TIME", updatable = false, insertable = false)
     private LocalDateTime createTime;
 
-    @Column(name = "start_time", updatable = false, insertable = false)
+    @Column(name = "START_TIME", updatable = false, insertable = false)
     private LocalDateTime startTime;
 
-    @Column(name = "end_time", updatable = false, insertable = false)
+    @Column(name = "END_TIME", updatable = false, insertable = false)
     private LocalDateTime endTime;
 
-    @Column(name = "last_updated", updatable = false, insertable = false)
+    @Column(name = "LAST_UPDATED", updatable = false, insertable = false)
     private LocalDateTime lastUpdated;
 
-    @Column(name = "status", updatable = false, insertable = false)
+    @Column(name = "STATUS", updatable = false, insertable = false)
     private String status;
 
-    @Column(name = "exit_code", updatable = false, insertable = false)
+    @Column(name = "EXIT_CODE", updatable = false, insertable = false)
     private String exitCode;
 
-    @Column(name = "exit_message", updatable = false, insertable = false)
+    @Column(name = "EXIT_MESSAGE", updatable = false, insertable = false)
     private String exitMessage;
 
-    @Column(name = "job_configuration_location", updatable = false, insertable = false)
+    @Column(name = "JOB_CONFIGURATION_LOCATION", updatable = false, insertable = false)
     private String jobConfigurationLocation;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "job_instance_id", updatable = false, insertable = false)
+    @JoinColumn(name = "JOB_INSTANCE_ID", updatable = false, insertable = false)
     private JobInstanceEntity jobInstance;
 
     @OneToMany(mappedBy = "jobExecutionId", fetch = FetchType.EAGER, orphanRemoval = true)

@@ -9,15 +9,15 @@ import java.io.Serializable;
 @Embeddable
 public class JobExecutionParameterEntityId implements Serializable {
 
-    @Column(name = "job_execution_id", updatable = false, insertable = false)
+    @Column(name = "JOB_EXECUTION_ID", updatable = false, insertable = false)
     private Long jobExecutionId;
 
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type_cd", updatable = false, insertable = false)
+    @Column(name = "TYPE_CD", updatable = false, insertable = false)
     private JobExecutionParameterEntity.ParameterType type;
 
-    @Column(name = "key_name", updatable = false, insertable = false)
+    @Column(name = "KEY_NAME", updatable = false, insertable = false)
     private String name;
 
     public Long getJobExecutionId() {

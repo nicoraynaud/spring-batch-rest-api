@@ -6,35 +6,35 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "batch_job_execution_params")
+@Table(name = "BATCH_JOB_EXECUTION_PARAMS")
 public class JobExecutionParameterEntity {
 
     @EmbeddedId
     private JobExecutionParameterEntityId id;
 
-    @Column(name = "job_execution_id", updatable = false, insertable = false)
+    @Column(name = "JOB_EXECUTION_ID", updatable = false, insertable = false)
     private Long jobExecutionId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type_cd", updatable = false, insertable = false)
+    @Column(name = "TYPE_CD", updatable = false, insertable = false)
     private ParameterType type;
 
-    @Column(name = "key_name", updatable = false, insertable = false)
+    @Column(name = "KEY_NAME", updatable = false, insertable = false)
     private String name;
 
-    @Column(name = "string_val", updatable = false, insertable = false)
+    @Column(name = "STRING_VAL", updatable = false, insertable = false)
     private String stringVal;
 
-    @Column(name = "date_val", updatable = false, insertable = false)
+    @Column(name = "DATE_VAL", updatable = false, insertable = false)
     private LocalDateTime dateVal;
 
-    @Column(name = "long_val", updatable = false, insertable = false)
+    @Column(name = "LONG_VAL", updatable = false, insertable = false)
     private Long longVal;
 
-    @Column(name = "double_val", updatable = false, insertable = false)
+    @Column(name = "DOUBLE_VAL", updatable = false, insertable = false)
     private Double doubleVal;
 
-    @Column(name = "identifying", updatable = false, insertable = false)
+    @Column(name = "IDENTIFYING", updatable = false, insertable = false)
     private Character identifying;
 
     public JobExecutionParameterEntityId getId() {

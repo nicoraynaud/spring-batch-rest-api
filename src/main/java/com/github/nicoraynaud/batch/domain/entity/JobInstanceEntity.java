@@ -4,20 +4,20 @@ package com.github.nicoraynaud.batch.domain.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "batch_job_instance")
+@Table(name = "BATCH_JOB_INSTANCE")
 public class JobInstanceEntity {
 
     @Id
-    @Column(name = "job_instance_id", updatable = false, insertable = false)
+    @Column(name = "JOB_INSTANCE_ID", updatable = false, insertable = false)
     private long id;
 
-    @Column(name = "version", updatable = false, insertable = false)
+    @Column(name = "VERSION", updatable = false, insertable = false)
     private Long version;
 
-    @Column(name = "job_name", updatable = false, insertable = false)
+    @Column(name = "JOB_NAME", updatable = false, insertable = false)
     private String jobName;
 
-    @Column(name = "job_key", updatable = false, insertable = false)
+    @Column(name = "JOB_KEY", updatable = false, insertable = false)
     private String jobKey;
 
     public long getId() {
