@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.Calendar;
 
 
@@ -48,7 +50,8 @@ public class StepExecutionMapperTest {
         Assert.assertEquals("STARTING", stepExecutionDTO.getStatus());
         Assert.assertEquals(STEP_EXECUTION_JOB_EXECUTION_ID, stepExecutionDTO.getJobExecutionId());
         Assert.assertNotNull(stepExecutionDTO.getStartTime());
-        Assert.assertEquals(LocalDateTime.of(1985,03,26,12,32,10), stepExecutionDTO.getStartTime());
+        Assert.assertEquals(LocalDateTime.of(1985,3,26,12,32,10).atZone(ZoneOffset.systemDefault()).toOffsetDateTime(),
+                stepExecutionDTO.getStartTime());
         Assert.assertNull(stepExecutionDTO.getEndTime());
         Assert.assertNull(stepExecutionDTO.getLastUpdated());
         Assert.assertEquals(0, stepExecutionDTO.getCommitCount());

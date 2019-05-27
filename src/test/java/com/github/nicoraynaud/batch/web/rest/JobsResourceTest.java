@@ -90,7 +90,8 @@ public class JobsResourceTest {
 
     @Test
     public void testGetJobNameExecutions() throws Exception {
-        when(jobService.getJobNameExecutions(any(), eq(PojoHelper.JOB_NAME_DEFAULT), any(), any(), any())).thenReturn(PojoHelper.createPageJobExecutionDefault());
+        when(jobService.getJobNameExecutions(any(), eq(PojoHelper.JOB_NAME_DEFAULT), any(), any(), any()))
+                .thenReturn(PojoHelper.createPageJobExecutionDefault());
         mockMvc.perform(MockMvcRequestBuilders.get("/management/jobs/" + PojoHelper.JOB_NAME_DEFAULT + "/executions"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content[0].id").value(PojoHelper.JOB_EXECUTION_ID_DEFAULT))
