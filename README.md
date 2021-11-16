@@ -19,13 +19,15 @@ This lib was developed by the following persons (if any co-author wants, I can a
 
 | JHipster      | spring-batch-rest-api |
 | ------------- | --------------------- |
-|  5.x          | 0.3.x                 |
+|  7.x          | 0.4.x                 |
+|  5,6.x        | 0.3.x                 |
 
 
 ## SpringBoot compatibility
 
 | Spring Boot   | spring-batch-rest-api |
 | ------------- | --------------------- |
+|  2.4.x        | 0.4.x                 |
 |  2.0.x        | 0.3.x                 |
 
 
