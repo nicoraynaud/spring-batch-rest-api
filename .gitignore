@@ -11,3 +11,4 @@ build/
 *.iml
 *.log
 out
+/src/main/generated/
