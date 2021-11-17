@@ -4,17 +4,25 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'maven'
+	id 'maven-publish'
 }
 
 sourceCompatibility = 11
 targetCompatibility = 11
 
-jar.baseName = projectName
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    baseName = 'spring-batch-rest-api'
-    classifier = 'sources'
-    from sourceSets.main.allSource
+bootJar {
+	enabled = false
+}
+
+jar {
+	baseName = projectName
+	enabled = true
+}
+
+task sourcesJar(type: Jar) {
+	from sourceSets.main.allSource
+	archiveClassifier = "sources"
 }
 
 artifacts {
@@ -40,7 +48,9 @@ dependencies{
 
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
 	compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.5'
-	compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.2.0.Final'
+
+	implementation "org.mapstruct:mapstruct:${mapstruct_version}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct_version}"
 
 	//TESTS
 	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: spring_boot_version

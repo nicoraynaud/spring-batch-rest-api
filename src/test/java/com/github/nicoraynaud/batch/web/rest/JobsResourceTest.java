@@ -60,7 +60,7 @@ public class JobsResourceTest {
         when(jobService.getJobs(null)).thenReturn(PojoHelper.createJobsDescriptionDefault());
         mockMvc.perform(get("/management/jobs"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].name").value(Matchers.hasItem(PojoHelper.JOB_NAME_DEFAULT)))
                 .andExpect(jsonPath("$.[*].description").value(Matchers.hasItem(PojoHelper.JOB_DESCRIPTION_DESCRIPTION_DEFAULT)));
     }
